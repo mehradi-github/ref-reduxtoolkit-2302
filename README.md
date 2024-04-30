@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
+## API mocking library
+
+[Mirage JS](https://miragejs.com/tutorial/intro/) is an API mocking library that lets you build, test and share a complete working JavaScript application without having to rely on any backend services.
+[Falso](https://ngneat.github.io/falso/docs/getting-started/) create massive amounts of fake data in the browser and NodeJS. Tree Shakeable & Fully Typed.
+
 ## Available Scripts
 
 In the project directory, you can run:
