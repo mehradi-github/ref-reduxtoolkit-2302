@@ -1,12 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, nanoid } from "@reduxjs/toolkit";
+import data from "../../api/data.json";
 
-const INITIAL_STATE = {};
+export type TaskState = {
+  entities: Task[];
+};
+const initialState: TaskState = {
+  entities: data.tasks,
+};
 
+type DraftTask = RequireOnly<Task, "title">;
+export const createTask = (draftTask: DraftTask): Task => {
+  return { id: nanoid(), ...draftTask };
+};
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState: INITIAL_STATE,
+  initialState,
   reducers: {
-    addTask: (state, action) => {},
+    addTask: (state, action: PayloadAction<DraftTask>) => {
+      const task = createTask(action.payload);
+      state.entities.unshift(task);
+    },
     removeTask: (state, action) => {},
   },
 });
