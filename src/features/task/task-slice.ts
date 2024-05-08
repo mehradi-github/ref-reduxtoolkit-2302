@@ -8,6 +8,7 @@ import data from "../../api/data.json";
 
 export type TaskState = {
   entities: Task[];
+  loading?: boolean;
 };
 const initialState: TaskState = {
   entities: [],
@@ -39,10 +40,14 @@ const tasksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchTasks.pending, (state) => {
+      state.loading = true;
+    });
     builder.addCase(
       fetchTasks.fulfilled,
       (state, action: PayloadAction<Task[]>) => {
         state.entities = action.payload;
+        state.loading = false;
       }
     );
   },
