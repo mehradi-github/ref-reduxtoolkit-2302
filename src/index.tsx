@@ -6,11 +6,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { makeServer } from "./api";
-
+import { fetchTasks } from "./features/task/task-slice";
 const environment = process.env.NODE_ENV;
 console.log("environment:", environment);
 makeServer({ environment });
-
+store.dispatch(fetchTasks());
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
