@@ -11,7 +11,7 @@ type DraftUser = RequireOnly<User, "realName" | "alterEgo">;
 const CreateUser = (draftUser: DraftUser) => {
   return { id: nanoid(), tasks: [], ...draftUser };
 };
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
@@ -21,3 +21,7 @@ export const userSlice = createSlice({
     },
   },
 });
+
+export const UsersReducer = userSlice.reducer;
+export const { addUser } = userSlice.actions;
+export default userSlice;
