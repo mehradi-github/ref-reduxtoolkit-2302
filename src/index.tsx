@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
+import "./index.scss";
 import { makeServer } from "./api";
 import { fetchTasks } from "./features/task/task-slice";
 const environment = process.env.NODE_ENV;

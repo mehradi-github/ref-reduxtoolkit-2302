@@ -1,13 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
-import "./App.css";
+import "./App.scss";
+import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
+import TaskList from "./features/task/task-list";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold">Task Manager</h1>
-      <header className="App-header">
+    <div className="flex flex-row w-full min-h-screen space-x-2">
+      <BrowserRouter>
+        <ul className="w-1/6 justify-center bg-blue-200 ">
+          <li>
+            <Link to="/counter"> counter</Link>
+          </li>
+          <li>
+            <Link to="/"> Task Manager</Link>
+          </li>
+        </ul>
+        <div className="flex w-5/6 justify-start">
+          <Routes>
+            <Route path="/" element={<TaskList />} />
+            <Route path="/counter" element={<Counter />} />
+          </Routes>
+        </div>
+
+        {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -51,7 +67,8 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
+      </BrowserRouter>
     </div>
   );
 }
