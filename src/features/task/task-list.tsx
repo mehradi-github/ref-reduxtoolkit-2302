@@ -1,11 +1,13 @@
-import { useAppSelector } from "../../app/hooks";
+import { useTask } from "../../app/hooks";
+import Loading from "./loading";
 import Task from "./task";
 
 const TaskList = () => {
-  const tasks = useAppSelector((state) => state.tasks.entities);
+  const [tasks, loading] = useTask();
 
   return (
     <section className="task-list">
+      <Loading loading={loading} />
       {tasks && tasks.map((t) => <Task key={t.id} task={t} />)}
     </section>
   );
